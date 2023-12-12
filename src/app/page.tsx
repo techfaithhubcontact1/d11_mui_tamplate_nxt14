@@ -1,95 +1,49 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client"
+//1. import area
+
+import { Container, Link, ThemeProvider, createTheme, Box, TextField, Avatar, Typography } from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockClockOutlined"
+
+
+//2. defination area
+var tm = createTheme();
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <ThemeProvider theme={tm}>
+      <Container maxWidth="sm" sx={{ p:10, display:"flex", flexDirection:"column", alignItems:"center", bgcolor:"#ea80fc", borderRadius:5 }}>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <Avatar sx={{ bgcolor: 'secondary.main', m: 2 }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h4">Login</Typography>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <Box component="form" sx={{ mb:"8", display:"flex", flexDirection:"column", alignItems:"center" }} >
+          <TextField 
+              fullWidth label="Email"
+              name="email"
+              id="email"
+              margin="normal"
+              required autoComplete="ename"
+              autoFocus
+          />
+          <TextField 
+              fullWidth label="Password" 
+              type="password"
+              name="password" 
+              id="password" 
+              margin="normal" 
+              required 
+              autoComplete="password" sx={{ mb:8 }}
+              
+          />
+          <Link href="/material-ui/getting-started/templat/album" sx={{ bgcolor:"blue", color:"#fff", p:2, borderRadius:4 }}>
+            Let Go To Album Page
+          </Link>
+        </Box>
+      </Container>
+    </ThemeProvider>
   )
 }
+
+//3. export area
