@@ -30,9 +30,9 @@ export default function Home() {
           <TextField 
               fullWidth label="Password" 
               type="password"
-              name="password" 
+              name="password"  
               id="password" 
-              margin="normal" 
+              margin="normal"  
               required 
               autoComplete="password" sx={{ mb:8 }}
               
